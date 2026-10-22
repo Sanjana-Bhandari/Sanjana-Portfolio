@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-900 font-sans text-slate-300 antialiased;
+}
+
+::selection {
+  background: #a855f7;
+  color: white;
+}
+
+@layer components {
+  .section {
+    @apply relative mx-auto max-w-6xl px-5 py-24 sm:px-8;
+  }
+  .glass {
+    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-400 via-accent-400 to-brand-400 bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient;
+  }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
